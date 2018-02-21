@@ -1,0 +1,24 @@
+class X implements Comparable<X>{
+            int index;
+            BigDecimal value;
+            String inputKey;
+          public X(int index,BigDecimal value,String inputKey){
+        	  this.index=index;
+        	  this.value=value;
+        	  this.inputKey=inputKey;
+          }
+          public int compareTo(X obj){
+              return this.value.compareTo(obj.value);
+          }  
+            
+        }
+        List<X> al= new ArrayList();
+        for(int i=0;i<n;i++){
+            al.add(new X(i,new BigDecimal(s[i]),s[i]));
+            //al.put(new BigDecimal(s[i]),s[i]);
+        }
+        
+       Collections.sort(al,Collections.reverseOrder());
+        for(int i=0;i<n;i++){
+            s[i]=al.get(i).inputKey;
+        }
